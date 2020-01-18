@@ -26,26 +26,24 @@ function App() {
 
   return (
     <div className="App">
-      <div className="App-wrapper">
+      <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <h3 className="Title">
-          Mis lecciones completadas
+          Mi aplicacion React
         </h3>
-        <div className="LessonCheck">
-          {
-            lessons.map(({lesson, id, completed}) => (
-              <label key={id}>
-                <input 
-                  type="checkbox" 
-                  onChange={() => onCompleted(id, completed)}
-                />
-                <span/>
-                {lesson}
-              </label>
-            ))
-          }
-        </div>
-      </div>
+        {
+          lessons.map(({lesson, id, completed}) => (
+            <label key={id}>
+              <input 
+                type="checkbox" 
+                onChange={() => onCompleted(id, completed)}
+              />
+              <span/>
+              {lesson}
+            </label>
+          ))
+        }
+      </header>
     </div>
   );
 }
