@@ -2,8 +2,9 @@
   text-align: center;
 }
 
+/* Logo */
 .App-logo {
-  height: 40vmin;
+  height: 35vmin;
   pointer-events: none;
 }
 
@@ -11,44 +12,6 @@
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-.App-btn {
-  width: 7.5rem;
-  height: 3rem;
-  border-radius: 5px;
-  font-size: 1rem;
-  font-weight: 600;
-  border-width: 0;
-}
-
-.primary {
-  background: #61daf9;
-  color: white;
-}
-
-.default {
-  background: #43474e;
-  color: black;
-}
-
-.Title {
-  height: 50px;
 }
 
 @keyframes App-logo-spin {
@@ -60,6 +23,57 @@
   }
 }
 
+.App-wrapper {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.Title {
+  height: 30px;
+  font-weight: 400;
+}
+
 .LessonCheck {
   display: block;
+}
+
+/* Lessons */
+.LessonCheck {
+  font-size: 1.5rem;
+}
+
+.LessonCheck label {
+  text-align: left;
+  display: block;
+  padding-bottom: 5px;
+}
+
+.LessonCheck input {
+  display: none; /* Esconder el checkbox predeterminado */
+}
+
+/* Estilo artificial del checkbox */
+.LessonCheck span {
+  height: 15px;
+  width: 15px;
+  border: 2px solid white;
+  display: inline-block;
+  position: relative;
+  margin-right: 10px;
+  border-radius: 5px;
+}
+
+/* Estilo cuando realizamos click en el checkbox con icono */
+
+.LessonCheck [type=checkbox]:checked + span:before {
+  content: '\2714';
+  position: absolute;
+  top: -10px;
+  left: 0;
 }

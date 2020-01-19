@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Button from './components/Buttons';
 
 function App() {
   const lessonsList = [
@@ -26,24 +25,26 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
+      <div className="App-wrapper">
         <img src={logo} className="App-logo" alt="logo" />
         <h3 className="Title">
-          Mi aplicacion React
+          Mi lecciones completadas
         </h3>
-        {
-          lessons.map(({lesson, id, completed}) => (
-            <label key={id}>
-              <input 
-                type="checkbox" 
-                onChange={() => onCompleted(id, completed)}
-              />
-              <span/>
-              {lesson}
-            </label>
-          ))
-        }
-      </header>
+        <div className="LessonCheck">
+          {
+            lessons.map(({lesson, id, completed}) => (
+              <label key={id}>
+                <input 
+                  type="checkbox" 
+                  onChange={() => onCompleted(id, completed)}
+                />
+                <span/>
+                {lesson}
+              </label>
+            ))
+          }
+        </div>
+      </div>
     </div>
   );
 }
