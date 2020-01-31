@@ -47,7 +47,10 @@ function App() {
             ))
           }
         </div>
-        <ProgressBar percentage={percentage}/>
+        <ProgressBar 
+          percentage={percentage}
+          style={{ width: '50%', marginTop: 15 }}
+        />
       </div>
     </div>
   );
