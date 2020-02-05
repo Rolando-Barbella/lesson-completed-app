@@ -16,7 +16,7 @@ function App() {
 
   const onCompleted = (id, completed) => {
     const updatedList = lessons.map(lesson => {
-      if(lesson.id === id) {
+      if (lesson.id === id) {
         lesson.completed = !completed;
       }
       return lesson
