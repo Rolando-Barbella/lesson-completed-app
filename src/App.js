@@ -1,39 +1,20 @@
 import React, { useState } from 'react';
 import logo from './logo.svg';
 import ProgressBar from './components/ProgressBar';
+import useArray from './hooks/useArray';
 import './App.css';
 
 function App() {
-  const lessonsList = [
+  const lessons = useArray([
     { id: 1, lesson: 'State', completed: false },
     { id: 2, lesson: 'UseRef', completed: false },
     { id: 3, lesson: 'Hooks personalizados', completed: false },
     { id: 4, lesson: 'Eventos', completed: false },
     { id: 5, lesson: 'Pulir aplicación', completed: false },
-  ];
+  ]);
 
-  const [lessons, setCompleted] = useState(lessonsList);
-
-  const onCompleted = (id, completed) => {
-    const updatedList = lessons.map(lesson => {
-      if (lesson.id === id) {
-        lesson.completed = !completed;
-      }
-      return lesson
-    });
-    return setCompleted(updatedList);
-  }
-  const lessonsCompleted = lessons.filter(l => l.completed).length;
-  const percentage = (100 * lessonsCompleted) / lessons.length;
-
-  const [showAllComplete, setShowAllComplete] = useState(true);
-
-  const completeAll = (showAllComplete) => {
-    const completeAllLessons = lessons.map(lesson => {
-      return ({...lesson, completed: showAllComplete })
-    });
-    setCompleted(completeAllLessons);
-  }
+  const lessonsCompleted = lessons.data.filter(l => l.completed).length;
+  const percentage = (100 * lessonsCompleted) / lessons.data.length;
   
   return (
     <div className="App">
@@ -44,11 +25,11 @@ function App() {
         </h3>
         <div className="LessonCheck">
           {
-            lessons.map(({ lesson, id, completed }) => (
+            lessons.data.map(({ lesson, id, completed }) => (
               <label key={id}>
                 <input 
                   type="checkbox" 
-                  onChange={() => onCompleted(id, completed)}
+                  onChange={() => lessons.completed(id)}
                   checked={completed}
                 />
                 <span/>
@@ -63,11 +44,11 @@ function App() {
         />
         <div className="Footer">
           <span onClick={() =>  {
-            setShowAllComplete(!showAllComplete);
-            completeAll(showAllComplete);
+            lessons.setShowAllComplete(!lessons.showAllComplete);
+            lessons.completeAll(lessons.showAllComplete);
           }}>
             {
-              showAllComplete ? 'Completar todas' : 'Limpiar todas'
+              lessons.showAllComplete ? 'Completar todas' : 'Limpiar todas'
             }
           </span>
         </div>
