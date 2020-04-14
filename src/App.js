@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import logo from './logo.svg';
 import ProgressBar from './components/ProgressBar';
 import useArray from './hooks/useArray';
