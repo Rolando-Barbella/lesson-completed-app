@@ -25,11 +25,12 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
+      <div className="App-wrapper">
         <img src={logo} className="App-logo" alt="logo" />
-        <h3>
+        <h3 className="Title">
           Mi aplicacion React
         </h3>
+        <div className="LessonCheck">
           {
             lessons.map(({ lesson, id, completed }) => (
               <label key={id}>
@@ -42,7 +43,8 @@ function App() {
               </label>
             ))
           }
-      </header>
+        </div>
+      </div>
     </div>
   );
 }
