@@ -1,0 +1,19 @@
+.ProgressBarContainer {
+  width: 100%;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 2px 4px #3c899c;
+}
+
+.ProgressBar {
+  background: #89d5e9;
+  height: 15px;
+  border-radius: 10px;
+}
+
+.PercentageText {
+  margin-top: 10px;
+  font-size: 1.5rem;
+  font-weight: 300;
+}
+
