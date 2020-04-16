@@ -24,8 +24,16 @@ function App() {
       }
       return lesson
     });
-    setCompleted(updatedList);
+    return setCompleted(updatedList)
   }
+
+  const [showCompleteAll, setShowCompleteAll] = useState(true);
+
+  const completeAll = (lessons, showCompleteAll) => {
+    let completeAllLessons = lessons.map(lesson => ({ ...lesson, completed: showCompleteAll }))
+    setCompleted(completeAllLessons);
+  }
+
 
   return (
     <div className="App">
@@ -41,6 +49,7 @@ function App() {
                 <input 
                   type="checkbox"
                   onChange={() => onCompleted(id, completed)}
+                  checked={completed}
                 />
                 <span/>
                 {lesson}
@@ -54,8 +63,8 @@ function App() {
         />
         <div className="Footer">
           <span onClick={() =>  {
-            setShowAllComplete(!showAllComplete);
-            completeAll(showAllComplete);
+            setShowCompleteAll(!showCompleteAll);
+            completeAll(lessons, showCompleteAll);
           }}>
             {
               showAllComplete ? 'Completar todas' : 'Limpiar todas'
