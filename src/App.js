@@ -21,7 +21,7 @@ function App() {
       <div className="App-wrapper">
         <img src={logo} className="App-logo" alt="logo" />
         <h3 className="Title">
-          Mi lecciones completadas
+          Mis lecciones completadas
         </h3>
         <div className="LessonCheck">
           {
