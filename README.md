@@ -17,6 +17,6 @@ También tienes mensajes de errores y avisos en la consola.
 
 Supongamos quieres mirar el código de la lección 3, entonces sigue estos pasos:
 
-- Dirigete al archivo al archivo madre `src/index.js`
-- Cambia la siguiente linea `import App from './App` por `import App from './leccion-3/App`
+- Dirigete al archivo madre `src/index.js`
+- Cambia la siguiente línea `import App from './App` por `import App from './leccion-3/App`
 
