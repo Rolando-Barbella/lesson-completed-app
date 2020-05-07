@@ -16,4 +16,3 @@ body {
    font-weight: 400;
   -webkit-font-smoothing: antialiased; 
  }
-```CSS

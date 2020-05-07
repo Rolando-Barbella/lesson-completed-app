@@ -46,4 +46,3 @@ Title {
  top: -10px;
  left: 0;
 }
-```CSS

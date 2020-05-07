@@ -10,4 +10,3 @@ const lessons = [
  { id: 4, lesson: 'Eventos', completed: false },
  { id: 5, lesson: 'Pulir aplicación', completed: false },
 ];
-```js
