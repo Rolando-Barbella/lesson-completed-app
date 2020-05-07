@@ -1,9 +1,24 @@
+body {
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: top;
+  background-image:url('../assets/bg-montana.jpeg');
+  width: 100%;
+  height: 100%;
+  font-family: Arial, Helvetica;
+  letter-spacing: 0.02em;
+   font-weight: 400;
+  -webkit-font-smoothing: antialiased; 
+ }
+ 
 .App {
   text-align: center;
 }
+
 /* Logo */
 .App-logo {
-  height: 40vmin;
+  height: 35vmin;
   pointer-events: none;
 }
 
@@ -23,7 +38,6 @@
 }
 
 .App-wrapper {
-  background-color: #282c34;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -33,7 +47,7 @@
   color: white;
 }
 
-Title {
+.Title {
   height: 30px;
   font-weight: 400;
 }
@@ -75,4 +89,11 @@ Title {
   position: absolute;
   top: -10px;
   left: 0;
+}
+
+.Footer {
+  width: 50%;
+  font-size: 1.2rem;
+  text-align: left;
+  cursor: pointer;
 }

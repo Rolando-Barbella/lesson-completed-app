@@ -12,7 +12,6 @@ function App() {
     { id: 5, lesson: 'Pulir aplicación', completed: false },
   ];
   const [lessons, setCompleted] = useState(lessonsList);
-  const [showAllComplete, setShowAllComplete] = useState(true);
 
   const lessonsCompleted = lessons.filter(l => l.completed).length;
   const percentage = (100 * lessonsCompleted) / lessons.length;
@@ -24,16 +23,8 @@ function App() {
       }
       return lesson
     });
-    return setCompleted(updatedList)
+    setCompleted(updatedList);
   }
-
-  const [showCompleteAll, setShowCompleteAll] = useState(true);
-
-  const completeAll = (lessons, showCompleteAll) => {
-    let completeAllLessons = lessons.map(lesson => ({ ...lesson, completed: showCompleteAll }))
-    setCompleted(completeAllLessons);
-  }
-
 
   return (
     <div className="App">
@@ -49,7 +40,6 @@ function App() {
                 <input 
                   type="checkbox"
                   onChange={() => onCompleted(id, completed)}
-                  checked={completed}
                 />
                 <span/>
                 {lesson}
@@ -57,20 +47,7 @@ function App() {
             ))
           }
         </div>
-        <ProgressBar 
-          percentage={percentage}
-          style={{ width: '50%', marginTop: 15 }}
-        />
-        <div className="Footer">
-          <span onClick={() =>  {
-            setShowCompleteAll(!showCompleteAll);
-            completeAll(lessons, showCompleteAll);
-          }}>
-            {
-              showAllComplete ? 'Completar todas' : 'Limpiar todas'
-            }
-          </span>
-        </div>
+        <ProgressBar percentage={percentage} />
       </div>
     </div>
   );

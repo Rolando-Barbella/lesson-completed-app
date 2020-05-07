@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import logo from '../logo.svg';
-import ProgressBar from './components/ProgressBar';
 import './App.css';
 
 function App() {
@@ -11,11 +10,8 @@ function App() {
     { id: 4, lesson: 'Eventos', completed: false },
     { id: 5, lesson: 'Pulir aplicación', completed: false },
   ];
-  const [lessons, setCompleted] = useState(lessonsList);
-  const [showAllComplete, setShowAllComplete] = useState(true);
 
-  const lessonsCompleted = lessons.filter(l => l.completed).length;
-  const percentage = (100 * lessonsCompleted) / lessons.length;
+  const [lessons, setCompleted] = useState(lessonsList);
 
   const onCompleted = (id, completed) => {
     const updatedList = lessons.map(lesson => {
@@ -24,16 +20,8 @@ function App() {
       }
       return lesson
     });
-    return setCompleted(updatedList)
+    setCompleted(updatedList);
   }
-
-  const [showCompleteAll, setShowCompleteAll] = useState(true);
-
-  const completeAll = (lessons, showCompleteAll) => {
-    let completeAllLessons = lessons.map(lesson => ({ ...lesson, completed: showCompleteAll }))
-    setCompleted(completeAllLessons);
-  }
-
 
   return (
     <div className="App">
@@ -49,27 +37,12 @@ function App() {
                 <input 
                   type="checkbox"
                   onChange={() => onCompleted(id, completed)}
-                  checked={completed}
                 />
                 <span/>
                 {lesson}
               </label>
             ))
           }
-        </div>
-        <ProgressBar 
-          percentage={percentage}
-          style={{ width: '50%', marginTop: 15 }}
-        />
-        <div className="Footer">
-          <span onClick={() =>  {
-            setShowCompleteAll(!showCompleteAll);
-            completeAll(lessons, showCompleteAll);
-          }}>
-            {
-              showAllComplete ? 'Completar todas' : 'Limpiar todas'
-            }
-          </span>
         </div>
       </div>
     </div>

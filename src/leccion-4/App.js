@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import logo from '../logo.svg';
-import ProgressBar from './components/ProgressBar';
 import './App.css';
 
 function App() {
@@ -11,10 +10,8 @@ function App() {
     { id: 4, lesson: 'Eventos', completed: false },
     { id: 5, lesson: 'Pulir aplicación', completed: false },
   ];
-  const [lessons, setCompleted] = useState(lessonsList);
 
-  const lessonsCompleted = lessons.filter(l => l.completed).length;
-  const percentage = (100 * lessonsCompleted) / lessons.length;
+  const [lessons, setCompleted] = useState(lessonsList);
 
   const onCompleted = (id, completed) => {
     const updatedList = lessons.map(lesson => {
@@ -28,12 +25,11 @@ function App() {
 
   return (
     <div className="App">
-      <div className="App-wrapper">
+      <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <h3 className="Title">
+        <h3>
           Mi aplicacion React
         </h3>
-        <div className="LessonCheck">
           {
             lessons.map(({ lesson, id, completed }) => (
               <label key={id}>
@@ -46,9 +42,7 @@ function App() {
               </label>
             ))
           }
-        </div>
-        <ProgressBar percentage={percentage} />
-      </div>
+      </header>
     </div>
   );
 }

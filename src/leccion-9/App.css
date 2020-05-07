@@ -76,3 +76,10 @@ Title {
   top: -10px;
   left: 0;
 }
+
+.Footer {
+  width: 50%;
+  font-size: 1.2rem;
+  text-align: left;
+  cursor: pointer;
+}

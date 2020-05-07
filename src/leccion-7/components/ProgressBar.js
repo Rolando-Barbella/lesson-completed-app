@@ -1,25 +1,9 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import './Progress-bar.css'
 
-const ProgressBar = ({ percentage, style }) => (
-  <>
-    <div className="ProgressBarContainer" style={{...style}}>
-      <div 
-        className="ProgressBar" 
-        style={{ width: `${percentage}%`}}
-      >
-      </div>
-    </div>
-    <span className="PercentageText">
-      {percentage}%
-    </span>
-  </>
+const ProgressBar = ({ percentage }) => (
+  <div>
+    {percentage}%
+  </div>
 )
-
-ProgressBar.propTypes = {
-  percentage: PropTypes.number.isRequired,
-  style: PropTypes.object,
-}
 
 export default ProgressBar
